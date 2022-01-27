@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/custom.css">
+  <link rel="icon" href="favicon-32x32.png">
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-background-color="#1597BB" style="color: #fff;">
+        <img data-src="../assets/first.png">
+      </section>
+      <section data-background-color="#141E61">
+        <ul>
+          <li>What is it generic?</li>
+          <li>Can you do without a generic?</li>
+          <li>How do you use a generic?</li>
+        </ul>
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+      const someVariable: ?
+						const someVariable = ['a', 'b', 'c'];
+					</code></pre>
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+      const someVariable: Array;
+						const someVariable = ['a', 'b', 'c'];
+					</code></pre>
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+      const someVariable: Array;
+						someVariable = ['a', 'b', 'c'];
+      const anotherVariable: [];
+      anotherVariable = [1, 2, 3];
+					</code></pre>
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+      const someVariable: Array < string >;
+						someVariable = ['a', 'b', 'c'];
+      const anotherVariable: number[];
+      anotherVariable = [1, 2, 3];
+					</code></pre>
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+      const someFunction = async (someData: string, id: string): Promise < void > => {
+        const url = `http://127.0.0.1:3000/storage/${id}`;
+        await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(someData)
+        });
+      }
+					</code></pre>
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          const someFunction = (arg: string): string => {
+            return arg;
+          };
+					</code></pre>
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <img data-src="../assets/code1.jpg">
+      </section>
+      <section data-background-color="#141E61" data-auto-animate>
+        <h2 data-id="code-title">Some Code</h2>
+        <img data-src="../assets/code2.jpg">
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      backgroundTransition: 'convex',
+      progress: false,
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>
