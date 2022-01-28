@@ -18,31 +18,40 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section data-background-color="#1597BB" style="color: #fff;">
+      <section data-background-color="#1572A1" style="color: #fff;">
         <img data-src="./assets/first.png">
       </section>
-      <section data-background-color="#141E61">
+      <section data-background-color="#1572A1">
+        <h2 data-id="code-title">Generic programming</h2>  
+        <ul>
+          <li>Ada, C#, Delphi,</li>
+          <li>Eiffel, F#, Java,</li>
+          <li>Nim, Python, Rust,</li>
+          <li>Swift, TypeScript and Visual Basic</li>
+        </ul>
+      </section>
+      <section data-background-color="#1572A1">
         <ul>
           <li>What is it generic?</li>
           <li>Can you do without a generic?</li>
           <li>How do you use a generic?</li>
         </ul>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
+      <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
         <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
       const someVariable: ?
 						const someVariable = ['a', 'b', 'c'];
 					</code></pre>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
+      <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
         <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
       const someVariable: Array;
 						const someVariable = ['a', 'b', 'c'];
 					</code></pre>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
+      <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
         <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
       const someVariable: Array;
@@ -51,19 +60,19 @@
       anotherVariable = [1, 2, 3];
 					</code></pre>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
+      <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
         <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
-      const someVariable: Array < string >;
+      const someVariable: Array &lt; string &gt;;
 						someVariable = ['a', 'b', 'c'];
       const anotherVariable: number[];
       anotherVariable = [1, 2, 3];
 					</code></pre>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
+      <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
         <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
-      const someFunction = async (someData: string, id: string): Promise < void > => {
+      const someFunction = async (someData: string, id: string): Promise &lt; void &gt; => {
         const url = `http://127.0.0.1:3000/storage/${id}`;
         await fetch(url, {
           method: 'PUT',
@@ -72,24 +81,263 @@
           },
           body: JSON.stringify(someData)
         });
-      }
+      };
 					</code></pre>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
+      <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
         <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
-          const someFunction = (arg: string): string => {
+          const getIdentityFunction = (arg: ?): string => {
+            return arg;
+          };
+					</code></pre>
+          <p>tsconfig.json:</p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          "compilerOptions": {
+            "noImplicitAny": true
+          },
+					</code></pre>
+      </section>
+      <section data-background-color="#1572A1">
+        <h2 data-id="code-title">Generics Applying</h2>
+        <ul>
+          <li>Function</li>
+          <li>Class</li>
+          <li>Type</li>
+          <li>Interface</li>
+          <li>Object</li>
+        </ul>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">Generics Applying</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          const getIdentityFunction = &lt; T &gt; (data: T): T => {
+            return data;
+          };
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">Generics Applying</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          const getIdentityFunction = &lt; T &gt; (data: T): T => {
+            return data;
+          };
+
+          function getIdentityFunctionToo &lt; T &gt; (arg: T): T {
             return arg;
           };
 					</code></pre>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
-        <h2 data-id="code-title">Some Code</h2>
-        <img data-src="./assets/code1.jpg">
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">Generics Applying</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          const getIdentityFunction = &lt; T &gt; (data: T): T => {
+            return data;
+          };
+
+          function getIdentityFunctionToo &lt; T &gt; (arg: T): T {
+            return arg;
+          };
+
+          const removeItemFromArray = &lt; T &gt; (arr: Array &lt; T &gt;, item: T): Array &lt; T &gt; => {
+            const index = arr.indexOf(item);
+            arr.splice(index, 1);
+            return arr;
+          };
+					</code></pre>
       </section>
-      <section data-background-color="#141E61" data-auto-animate>
-        <h2 data-id="code-title">Some Code</h2>
-        <img data-src="./assets/code2.jpg">
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">Generics Applying</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          const getIdentityFunction = &lt; T &gt; (data: T): T => {
+            return data;
+          };
+
+          function getIdentityFunctionToo &lt; T &gt; (arg: T): T {
+            return arg;
+          };
+          
+          const removeItemFromArray = &lt; T &gt; (arr: Array &lt; T &gt;, item: T): Array &lt; T &gt; => {
+            const index = arr.indexOf(item);
+            arr.splice(index, 1);
+            return arr;
+          };
+					</code></pre>
+          <p></p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          &lt; anyWord &gt;
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">Generics Applying</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          const getIdentityFunction = &lt; T &gt; (data: T): T => {
+            return data;
+          };
+
+          function getIdentityFunctionToo &lt; T &gt; (arg: T): T {
+            return arg;
+          };
+          
+          const removeItemFromArray = &lt; T &gt; (arr: Array &lt; T &gt;, item: T): Array &lt; T &gt; => {
+            const index = arr.indexOf(item);
+            arr.splice(index, 1);
+            return arr;
+          };
+					</code></pre>
+          <p></p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          &lt; AnyWord &gt;
+					</code></pre>
+          <p></p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          &lt; T, V, K, M &gt;
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">DRY</h2>
+        <p>Don&apos;t repeat yourself</p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          type firstType = {
+            name: string,
+            secondName: string,
+            abilities: {
+              firstAbility: string,
+              secondAbility: string
+            }
+          };
+          
+          type secondType = {
+            name: string,
+            secondName: string,
+            abilities: {
+              thirdAbility: string,
+              forthAbility: string
+            }
+          };
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">DRY</h2>
+        <p>Don&apos;t repeat yourself</p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          type jointType &lt; T &gt; = {
+            name: string,
+            secondName: string,
+            abilities: T
+          };
+          
+          type firstSmallType = {
+            firstAbility: string,
+            secondAbility: string
+          };
+          
+          type secondSmallType = {
+            thirdAbility: string,
+            forthAbility: string
+          };
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">DRY</h2>
+        <p>Don&apos;t repeat yourself</p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          type jointType &lt; T &gt; = {
+            name: string,
+            secondName: string,
+            abilities: T
+          };
+          
+          type firstSmallType = {
+            firstAbility: string,
+            secondAbility: string
+          };
+          
+          type secondSmallType = {
+            thirdAbility: string,
+            forthAbility: string
+          };
+          
+          const firstObj: jointType &lt; firstSmallType &gt;;
+          const secondObj: jointType &lt; secondSmallType &gt;;
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">DRY</h2>
+        <p>Don&apos;t repeat yourself</p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          interface FirstInterface {
+            name: string;
+            secondName: string;
+            abilities: {
+              firstAbility: string;
+              secondAbility: string;
+            };
+          };
+          
+          interface SecondInterface {
+            name: string;
+            secondName: string;
+            abilities: {
+              thirdAbility: string;
+              forthAbility: string;
+            };
+          };
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">DRY</h2>
+        <p>Don&apos;t repeat yourself</p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          interface JointInterface &lt; T &gt; {
+            name: string;
+            secondName: string;
+            abilities: T;
+          };
+
+          interface FirstSmallInterface {
+            firstAbility: string;
+            secondAbility: string;
+          };
+
+          interface SecondSmallInterface {
+            thirdAbility: string;
+            forthAbility: string;
+          };
+					</code></pre>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          interface JointInterface &lt; T &gt; {
+            name: string;
+            secondName: string;
+            abilities: T;
+          };
+          interface FirstSmallInterface {
+            firstAbility: string;
+            secondAbility: string;
+          };
+          interface SecondSmallInterface {
+            thirdAbility: string;
+            forthAbility: string;
+          };
+					</code></pre>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          class FirstClass implements JointInterface &lt; FirstSmallInterface &gt; {
+            name: string;
+            secondName: string;
+            abilities: firstSmallInterface;
+          };
+          class SecondClass implements JointInterface &lt; SecondSmallInterface &gt; {
+            name: string;
+            secondName: string;
+            abilities: secondSmallInterface;
+          };
+					</code></pre>
+      </section>
+      <section data-background="./assets/background-end.jpg" data-auto-animate></section>
+      <section data-background-color="#11468F" data-auto-animate>
+        Thanks for watching.
       </section>
     </div>
   </div>
