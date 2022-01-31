@@ -20,14 +20,26 @@
     <div class="slides">
       <section data-background-color="#1572A1" style="color: #fff;">
         <img data-src="./assets/first.png">
+        <aside class="notes">
+          Hi. Today I would like to talk about generics. There is widespread recognition that generics are the most
+          complicated part of typescript. But in fact it`s very important to realize generics and use them properly.
+          Introduction: Generics are a fundamental feature of statically-typed languages,
+        </aside>
       </section>
       <section data-background-color="#1572A1">
-        <h2 data-id="code-title">Generic programming</h2>  
+        <h2 data-id="code-title">Generic programming</h2>
         <ul>
           <li>Ada, C#, Delphi,</li>
           <li>Eiffel, F#, Java,</li>
           <li>Nim, Python, Rust,</li>
           <li>Swift, TypeScript and Visual Basic</li>
+          <aside class="notes">
+            allowing developers to pass types as parameters to another type, function, or other structure. When a
+            developer makes their component a generic component, they give that component the ability to accept and
+            enforce typing that is passed in when the component is used, which improves code flexibility, makes
+            components reusable, and removes duplication.
+            I am gonna explain:
+          </aside>
         </ul>
       </section>
       <section data-background-color="#1572A1">
@@ -36,6 +48,9 @@
           <li>Can you do without a generic?</li>
           <li>How do you use a generic?</li>
         </ul>
+        <aside class="notes">
+          what a generic is, can we do without generics and how do we use generics. Let`s look at some code.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
@@ -43,6 +58,9 @@
       const someVariable: ?
 						const someVariable = ['a', 'b', 'c'];
 					</code></pre>
+        <aside class="notes">
+          We&rsquo;ve got a variable which we gonna assign to some type. We can say it`s an array.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
@@ -50,6 +68,9 @@
       const someVariable: Array;
 						const someVariable = ['a', 'b', 'c'];
 					</code></pre>
+        <aside class="notes">
+          Also we can use square brackets.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
@@ -59,6 +80,10 @@
       const anotherVariable: [];
       anotherVariable = [1, 2, 3];
 					</code></pre>
+        <aside class="notes">
+          But it`s not enough to describe these variables. We have to say what this array consist of or what we use to
+          fill this array with.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
@@ -68,6 +93,9 @@
       const anotherVariable: number[];
       anotherVariable = [1, 2, 3];
 					</code></pre>
+        <aside class="notes">
+          This is already generic types.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
@@ -83,6 +111,10 @@
         });
       };
 					</code></pre>
+        <aside class="notes">
+          Additionally, we use generics to describe functions which return promises. It&rsquo;s quite simple. But go
+          ahead and look at this.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Some Code</h2>
@@ -91,12 +123,17 @@
             return arg;
           };
 					</code></pre>
-          <p>tsconfig.json:</p>
+        <p>tsconfig.json:</p>
         <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
           "compilerOptions": {
             "noImplicitAny": true
           },
 					</code></pre>
+        <aside class="notes">
+          This is an arrow function which returns it`s argument. But what if we don`t know which type of argument the
+          function accepts and returns. It can be any type of. But it`s forbidden in typescript as we use
+          "noImplicitAny": true and it`s very important to use this option.
+        </aside>
       </section>
       <section data-background-color="#1572A1">
         <h2 data-id="code-title">Generics Applying</h2>
@@ -107,6 +144,10 @@
           <li>Interface</li>
           <li>Object</li>
         </ul>
+        <aside class="notes">
+          So we have to realize how to use typescript generics in functions, classes, types, interfaces and objects and
+          why we should do that.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Generics Applying</h2>
@@ -115,6 +156,9 @@
             return data;
           };
 					</code></pre>
+        <aside class="notes">
+          To solve the problem, we can use a generic type. They allow us not to define the type of argument but we can
+          say that the argument and the returning value have the same type.
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Generics Applying</h2>
@@ -127,6 +171,10 @@
             return arg;
           };
 					</code></pre>
+        <aside class="notes">
+          It`s a bit different situation comparing
+          when we assign an “any” type.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Generics Applying</h2>
@@ -145,6 +193,9 @@
             return arr;
           };
 					</code></pre>
+        <aside class="notes">
+          The similar situation is when we&rsquo;ve got a function which deletes an element from an array.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">Generics Applying</h2>
@@ -163,36 +214,43 @@
             return arr;
           };
 					</code></pre>
-          <p></p>
-        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
-          &lt; anyWord &gt;
-					</code></pre>
-      </section>
-      <section data-background-color="#11468F" data-auto-animate>
-        <h2 data-id="code-title">Generics Applying</h2>
-        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
-          const getIdentityFunction = &lt; T &gt; (data: T): T => {
-            return data;
-          };
-
-          function getIdentityFunctionToo &lt; T &gt; (arg: T): T {
-            return arg;
-          };
-          
-          const removeItemFromArray = &lt; T &gt; (arr: Array &lt; T &gt;, item: T): Array &lt; T &gt; => {
-            const index = arr.indexOf(item);
-            arr.splice(index, 1);
-            return arr;
-          };
-					</code></pre>
-          <p></p>
+        <p></p>
         <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
           &lt; AnyWord &gt;
 					</code></pre>
-          <p></p>
+        <aside class="notes">
+          It can be any letter as a generic type, even a whole word but it`s accepted to use a T letter in angle
+          brackets.
+        </aside>
+      </section>
+      <section data-background-color="#11468F" data-auto-animate>
+        <h2 data-id="code-title">Generics Applying</h2>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          const getIdentityFunction = &lt; T &gt; (data: T): T => {
+            return data;
+          };
+
+          function getIdentityFunctionToo &lt; T &gt; (arg: T): T {
+            return arg;
+          };
+          
+          const removeItemFromArray = &lt; T &gt; (arr: Array &lt; T &gt;, item: T): Array &lt; T &gt; => {
+            const index = arr.indexOf(item);
+            arr.splice(index, 1);
+            return arr;
+          };
+					</code></pre>
+        <p></p>
+        <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
+          &lt; AnyWord &gt;
+					</code></pre>
+        <p></p>
         <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
           &lt; T, V, K, M &gt;
 					</code></pre>
+        <aside class="notes">
+          Actually we can use many generics with commas.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">DRY</h2>
@@ -216,6 +274,10 @@
             }
           };
 					</code></pre>
+        <aside class="notes">
+          But the most forceful generics are when we gonna not to duplicate our code. Look at this example. Types are
+          almost the same. But property “abilities” has different types.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">DRY</h2>
@@ -237,6 +299,9 @@
             forthAbility: string
           };
 					</code></pre>
+        <aside class="notes">
+          We can assign this property to be a generic type and create a few different small types.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">DRY</h2>
@@ -261,6 +326,10 @@
           const firstObj: jointType &lt; firstSmallType &gt;;
           const secondObj: jointType &lt; secondSmallType &gt;;
 					</code></pre>
+        <aside class="notes">
+          And we will not duplicate code.
+          When we describe the certain objects we can use any small type.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">DRY</h2>
@@ -284,6 +353,9 @@
             };
           };
 					</code></pre>
+        <aside class="notes">
+          The very similar situation is when we use interfaces and classes.
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <h2 data-id="code-title">DRY</h2>
@@ -305,6 +377,12 @@
             forthAbility: string;
           };
 					</code></pre>
+        <aside class="notes">
+          <aside class="notes">
+            Moreover, interfaces can extend each other
+            but they can`t be joint or extend several interfaces.
+          </aside>
+        </aside>
       </section>
       <section data-background-color="#11468F" data-auto-animate>
         <pre data-id="code-animation" style="font-size: 18px;"><code class="hljs" data-trim data-line-numbers>
@@ -334,14 +412,22 @@
             abilities: SecondSmallInterface;
           };
 					</code></pre>
+        <aside class="notes">
+          What can we say in conclusion about generics? Using them correctly will save you from repeating code over and
+          over again and will make the types you have written more flexible.
+        </aside>
       </section>
-      <section data-background="./assets/background-end.jpg" data-auto-animate></section>
+      <section data-background="./assets/background-end.jpg" data-auto-animate>
+        <aside class="notes">
+          That`s all. Thanks for watching.
+        </aside>
+      </section>
       <section data-background-color="#11468F" data-auto-animate>
-        Thanks for watching.
+        <p>Thanks for watching.</p>
       </section>
     </div>
   </div>
-  
+
   <script src="dist/reveal.js"></script>
   <script src="plugin/notes/notes.js"></script>
   <script src="plugin/markdown/markdown.js"></script>
